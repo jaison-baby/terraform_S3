@@ -10,3 +10,8 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "default_version" {
+  description = " versioning default value as dissabled"
+  default = "Suspended"
+}

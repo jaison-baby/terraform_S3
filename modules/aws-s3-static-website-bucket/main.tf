@@ -21,7 +21,7 @@ resource "aws_s3_bucket_website_configuration" "s3_bucket" {
 resource "aws_s3_bucket_versioning" "example" {
   bucket = aws_s3_bucket.s3_bucket.id
   versioning_configuration {
-    status = "Enabled"
+    status = var.default_version
   }
    }
 
@@ -42,13 +42,13 @@ resource "aws_s3_bucket_versioning" "example" {
 #  }
 #}
 
-resource "aws_s3_bucket_acl" "s3_bucket" {
-  bucket = aws_s3_bucket.s3_bucket.id
+# resource "aws_s3_bucket_acl" "s3_bucket" {
+#  bucket = aws_s3_bucket.s3_bucket.id
 
-  acl = "public-read"
-}
+#  acl = "public-read"
+#} */
 
-resource "aws_s3_bucket_policy" "s3_bucket" {
+ resource "aws_s3_bucket_policy" "s3_bucket" {
   bucket = aws_s3_bucket.s3_bucket.id
 
   policy = jsonencode({
@@ -67,3 +67,5 @@ resource "aws_s3_bucket_policy" "s3_bucket" {
     ]
   })
 }
+
+

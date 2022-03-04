@@ -8,8 +8,5 @@ module "website_s3_bucket" {
 
   bucket_name = var.bucket_name
 
-  tags = {
-    Terraform   = "true"
-    Environment = "dev"
-  }
+  tags = var.tags
 }
