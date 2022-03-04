@@ -25,22 +25,22 @@ resource "aws_s3_bucket_versioning" "example" {
   }
    }
 
-resource "aws_s3_bucket_lifecycle_configuration" "this" {
-  bucket = aws_s3_bucket.s3_bucket.id
+#resource "aws_s3_bucket_lifecycle_configuration" "this" {
+#  bucket = aws_s3_bucket.s3_bucket.id
 
-  rule {
-    id     = "index.html"
-    status = "Enabled"
+#  rule {
+#    id     = "index.html"
+#    status = "Enabled"
 
-    filter {
-      prefix = "index.html/"
-    }
+#    filter {
+#      prefix = "index.html/"
+#    }
 
-    expiration {
-      days = 7
-    }
-  }
-}
+#    expiration {
+#      days = 7
+#    }
+#  }
+#}
 
 resource "aws_s3_bucket_acl" "s3_bucket" {
   bucket = aws_s3_bucket.s3_bucket.id
